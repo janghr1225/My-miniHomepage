@@ -1,0 +1,92 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="VisitorContent">
+
+	<!-- �Է��� -->
+	<br>
+	   <div class="container">
+	      <form th:action="@{|/guestbook/create|}" method="post" th:object="${GuestbookForm}">
+	         <div>
+	         	<br>
+		         <textarea class="guestbookform" name="guestName" rows="1" cols="20" placeholder="방문자 이름"></textarea><br>
+		         <textarea class="guestbookform" name="guestContent" rows="7" cols="50" placeholder="어서오세요. 방명록을 작성해주세요 :)"></textarea>
+		         <input type="submit" value="등록" id="submitInput">
+		         <br>
+	         </div>
+	      </form>
+	   </div>
+
+   <!-- ���� �ݺ� ���� -->
+   <div class="card my-3" th:each="guestbook : ${paging}" id="guestdiv">
+      <div class="card-body">
+      
+         <div style="background-color:whitesmoke;">
+         	<span><img src="/static/img/home.png"></span>
+            <span class="text-primary ms-2 fw-bold"
+                th:text="${guestbook.guestName}"/>
+            <span th:text="${#temporals.format(guestbook.guestDate, 'yyyy-MM-dd HH:mm')}" class="date"/>
+         </div>
+         
+         
+         
+         <br>
+         	<div th:text="${guestbook.guestContent}"/>
+         <br>
+         
+         <!-- ���� -->
+         <span class="my-3" style="float:right;">
+         	<!-- <a th:href="@{|/guestbook/modify/${guestbook.guestId}|}"
+         		class="btn btn-sm btn-outline-secondary"
+         		th:text="����"></a> -->
+         	<a href="javascript:void(0)"
+         		th:data-uri="@{|/guestbook/delete/${guestbook.guestId}|}" 
+         		class="delete btn btn-sm btn-outline-secondary"
+         		style="border:1px solid white;"
+         		sec:authorize="isAuthenticated()"
+         		th:text="삭제"></a>
+         </span>
+         
+      </div>
+      
+ 
+      
+   </div>
+   
+         <!-- ����¡ó�� ���� -->
+    <div th:if="${!paging.isEmpty()}" id="paging">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${!paging.hasPrevious} ? 'disabled'">
+                <a class="page-link"
+                    th:href="@{|?page=${paging.number-1}|}">
+                    <span>이전</span>
+                </a>
+            </li>
+            <li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}"
+            	th:if="${page >= paging.number-1 and page <= paging.number+1}"
+                th:classappend="${page == paging.number} ? 'active'" 
+                class="page-item">
+                <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+            </li>
+            <li class="page-item" th:classappend="${!paging.hasNext} ? 'disabled'">
+                <a class="page-link" th:href="@{|?page=${paging.number+1}|}">
+                    <span>다음</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <br><br>
+    <!-- ����¡ó�� �� -->
+   
+</body>
+
+   <script layout:fragment="script" type='text/javascript'>
+      const delete_elements = document.getElementsByClassName("delete");
+      Array.from(delete_elements).forEach(function(element) {
+         element.addEventListener('click', function() {
+            if (confirm("정말 삭제하시겠습니까?")) {
+               location.href = this.dataset.uri;
+            };
+         });
+      });
+   </script>
+
+</html>

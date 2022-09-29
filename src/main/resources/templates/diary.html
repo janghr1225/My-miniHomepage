@@ -1,0 +1,68 @@
+<!-- 다이어리 입력 페이지 -->
+<html layout:decorate = "~{diary_layout}">
+<div layout:fragment="content" class="container my-3">
+<div th:fragment="diaryContent">
+	<h2 style="text-align: center; margin: 1em 0;">다이어리</h2>
+		<table class="card my-3">
+			<tr class="card-body" style="font-size: 18px">
+				<td class="mainday text-center" style="font-size: 20px">07.22<br>FRI</td>
+				<td class="subday">&nbsp; 1 <span class="saturday"> 2 </span><span class="sunday"> 3 </span>
+				4 5 6 7 8 <span class="saturday"> 9 </span><span class="sunday"> 10 </span>
+				11 12 13 14 15 <span class="saturday"> 16 </span><span class="sunday"> 17 </span>
+				18 19 20 21 22 <span class="saturday"> 23 </span><span class="sunday"> 24 </span>
+				25 &nbsp;&nbsp;26 27 28 29 <span class="saturday"> 30 </span><span class="sunday"> 31 </span></td>
+			</tr>
+		</table>
+		
+<form th:object="${diaryForm}" method="post">
+         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+            
+         <!-- 경고문 -->
+         <div th:replace="form_errors :: formErrorsFragment"></div>
+             
+         <!-- 내용 입력란 -->
+         <div class="mb-3">
+             <label for="content" class="form-label"></label>
+             <textarea th:field=*{content} name="content" class="form-control" rows="10"></textarea>
+         </div>
+         
+         <!-- 등록 버튼 -->
+         <input type="submit" value="등록" class="btn btn-outline-secondary my-2"/>
+         <a th:href="@{/diary/list}" class="btn btn-outline-secondary">취소</a>
+      </form>   
+
+		
+		<div class="card my-3" th:each="diary, loop: ${diaryList}">
+			<div class="card-body">
+				<div class="card-text" style="white-space: pre-line; color: #3a81a3;"
+				 th:text="${#temporals.format(diary.writeDate, 'yyyy-MM-dd E HH:mm')}">
+				</div>
+				<p></p>
+				<div class="text-center" th:text="${diary.content}"></div>
+				<p></p>
+			</div>
+			<div class="card-footer">
+				<!-- 수정버튼 -->
+				<a th:href="@{|/diary/modify/${diary.id}|}" class="btn btn-sm btn-outline-secondary"
+                th:text="수정"></a>
+                
+				<!-- 삭제 버튼-->
+				<a href="javascript:void(0);" th:data-uri="@{|/diary/delete/${diary.id}|}"
+                class="delete btn btn-sm btn-outline-secondary"
+                th:text="삭제"></a>
+			</div>
+		</div>
+	
+	<script type='text/javascript' defer>
+		const delete_elements = document.getElementsByClassName("delete");
+		Array.from(delete_elements).forEach(function(element) {
+		    element.addEventListener('click', function() {
+		        if(confirm("정말 삭제하시겠습니까?")) {
+		            location.href = this.dataset.uri;
+		        };
+		    });
+		});
+	</script>
+</div>
+</div>
+</html>

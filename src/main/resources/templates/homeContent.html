@@ -1,0 +1,17 @@
+<!-- 인덱스의 내용부분, 사진첩. 닫력 -->
+<div th:fragment="HomeContent">
+
+	
+<h5 style="margin: 1em 0;">나의 사진첩</h5>	
+<hr/>
+	<div sec:authorize="isAuthenticated()">
+		<img src="/img/dandelions.jpg" style="width:40%;margin:0 1em 1em 1em;display:inline-block;" alt="사진"/>
+		
+		</div>
+	
+			<div sec:authorize="isAnonymous()" aria-current="page">
+<img src="/img/dandelionsinwater.jpg" style="width:40%;margin:0 1em 1em 1em;display:inline-block;" alt="사진"/>
+
+		</div>
+	<hr/>
+</div>

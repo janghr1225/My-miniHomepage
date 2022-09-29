@@ -1,0 +1,38 @@
+<!-- �ڿ� ���� ���� -->
+<html layout:decorate = "~{form_layout}">
+  <div layout:fragment = "content" class="container my-3" style="background-color:white">
+<h3 style="text-align: center">회원가입</h3>
+<form th:action="@{/hompiUser/signup}" th:object="${hompiUserCreateForm}" method="post">
+
+        <div th:replace="form_errors :: formErrorsFragment"></div>
+        <div class="signup_wrap">
+        
+        <div class="mb-3">
+            <label for="username" class="form-label">미니홈피 ID</label>
+            <input type="text" th:field="*{username}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">비밀번호</label>
+            <input type="password" th:field="*{password1}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">비밀번호 확인</label>
+            <input type="password" th:field="*{password2}" class="form-control">
+        </div>
+        
+        
+        </div>
+        <div class="signup_wrap">
+        <div class="mb-3">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" th:field="*{email}" class="form-control">
+        </div>
+        <div class="mb-3 signup_textArea">
+            <label for="profile" class="form-label">간단하게 나를 소개한다면?</label>
+            <input type="text" th:field="*{profile}"  class="form-control">
+        </div><button type="submit" class="btn btn-secondary btn_position" style="width:7em; ">회원가입</button>
+        </div>
+        
+    </form> 
+    </div>
+</html>

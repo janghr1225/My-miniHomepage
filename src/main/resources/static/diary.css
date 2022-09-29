@@ -1,0 +1,22 @@
+.card-body {
+	display: inline-block;
+}
+
+.mainday {
+	flex: 0.1;
+	color: #3a81a3;
+	margin: 8px 5px 8px 10px;
+}
+		
+.subday {
+	flex: 0.9;
+	color: black;
+}
+		
+.saturday {
+	color: blue;
+}
+		
+.sunday {
+	color: red;
+}

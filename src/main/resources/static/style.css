@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+}
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #a3a3a3;
+  background-image: url(/img/pattern.png);
+  background-size: 0.5em;
+}
+#container_wrap {
+  background-color: whitesmoke;
+  border-radius: 9px;
+  height: 80vh;
+  margin: 1em 0;
+  padding:2em;
+}
+.homeWrapper {
+  background-color: grey;
+  border-radius: 9px;
+  border: 1px solid #738186;
+
+  top: 6%;
+  left: 50%;
+
+  transform: translateX(-50%);
+  position: fixed;
+}
+.dotWrapper {
+  border-style: dashed;
+  color: whitesmoke;
+  padding: 0 1em;
+  margin: 1em 0;
+}
+.LoginSigninBtn {
+  width: 13%;
+  margin: 0.5em 0 0.5em 85%;
+  transform: translateY(-3.5em);
+}
+.profileWrap {
+  width: 20%;
+  height: 80%;
+  border: 1px solid silver;
+  border-radius: 9px;
+  float: left;
+  margin: 0 2em 0 1em;
+  background-color: white;
+  padding: 1em;
+}
+.formLayOutWrap {
+  width: 20%;
+  height: 80%;
+  border: 1px solid silver;
+  border-radius: 9px;
+  float: left;
+  margin: 0 2em 0 1em;
+  background-color: white;
+  padding: 1em;
+  overflow:overlay;
+ 
+}
+.formLayOutWrap::-webkit-scrollbar {
+  display: none;
+}
+
+
+#nav-tabContent {
+  display: inline-block;
+  width: 60%;
+}
+#nav-tabContent {
+  width: 60%;
+  height: 450px;
+  border: 1px solid silver;
+  border-radius: 9px 0 0 9px;
+  float: left;
+  margin-left: 1em;
+  background-color: white;
+  padding: 1em;
+}
+
+.nav {
+  clear: both;
+  display: inline-flex;
+  flex-wrap: wrap;
+  /* padding-left: 65%; */
+  margin-bottom: 0;
+  list-style: none;
+  flex-direction: column;
+  width: 10em;
+}
+.imageWrap {
+    width: 12em;
+    height: 12em;
+    background-color: grey;
+    text-align: center;
+    padding-top: 46%;
+    border-radius: 9px;
+    margin:1em auto 0 auto;
+}
+.profileTextWrap {
+	width: 13em;
+	height: 10em;
+
+	text-align: justify;
+	padding: 1em;
+	
+}
+.btn_position {
+
+    float:right;
+}
+#profile {
+	height: 6em;
+}
+.signup_wrap {
+	display: inline-grid;
+    width: 45%;
+    margin: 0 1em;
+}
+.alert{
+	margin-bottom:0.5em;
+}
+.nav {
+	clear: both;
+	display: inline-flex;
+	flex-wrap: wrap;
+	margin-bottom: 0;
+	list-style: none;
+	flex-direction: column;
+	width: 10em;
+}
+#nav-tabContent {
+	max-width: 60%;
+	height: 80%;
+	border: 1px solid silver;
+	border-radius: 9px 0 0 9px;
+	float: left;
+	margin-left: 1em;
+	background-color: white;
+	padding: 1em;
+}
+#nav-tabContent {
+	display: inline-block;
+	width: 60%;
+}
+/* 게시물의 스크롤바 없애기 기능
+.tab-content::-webkit-scrollbar {
+  display: none;
+}*/
+h1{
+	display:inline-block;
+}

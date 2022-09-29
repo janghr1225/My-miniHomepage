@@ -1,0 +1,31 @@
+<!-- 로그인 사인업 페이지 공통 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<script src="/bootstrap.min.js" defer></script>
+<link rel="stylesheet" type="text/css" href="/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="stylesheet" type="text/css" href="/font.css" />
+<link rel="stylesheet" type="text/css" href="/diary.css" />
+<link rel="stylesheet" type="text/css" href="/guestbook.css" />
+</head>
+ <body>
+    <div class="container-md homeWrapper">
+      <div class="dotWrapper">
+        <div class="container" id="container_wrap">
+        	<span><h1><a th:href="@{/}" class="text-dark">나의 미니홈피(>'-'<)</a></h1></span>
+        	<div th:replace="LogSignbtn::LogSignbtnFragment" style="display:inline"></div> 
+          <div class="formLayOutWrap" style="width: 97%">
+  <th:block layout:fragment="content" ></th:block>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

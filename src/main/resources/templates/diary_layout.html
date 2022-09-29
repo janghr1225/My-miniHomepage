@@ -1,0 +1,52 @@
+<!-- 다이어리리스트 레이아웃 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/style.css" />
+<link rel="stylesheet" type="text/css" href="/font.css" />
+<link rel="stylesheet" type="text/css" href="/diary.css" />
+<link rel="stylesheet" type="text/css" href="/guestbook.css" />
+<script src="/bootstrap.min.js" defer></script>
+</head>
+<body>
+	<div class="container-md homeWrapper">
+		<div class="dotWrapper">
+			<div class="container" id="container_wrap">
+				<span><h1>
+						<a th:href="@{/}" class="text-dark">나의 미니홈피(>'-'<)</a>
+					</h1></span>
+				<div th:replace="LogSignbtn::LogSignbtnFragment"></div>
+				<div class="profileWrap">
+					About me
+					<div class="imageWrap">이미지</div>
+
+					<div th:replace="profile::profileContent"></div>
+				</div>
+				<div class="tab-content" id="nav-tabContent" style="overflow: auto;">
+					<div class="tab-pane fade show active" id="nav-home"
+						role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+
+				<!--				<div th:replace="diary_form::diaryContent"></div>--> 
+					<div th:replace="diaryContent::diaryContent"></div>
+
+
+					</div>
+				</div>
+				<div th:replace="index::navBar"></div>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- 자바스크립트 -->
+</body>
+<th:block layout:fragment="script" defer></th:block>
+
+</html>

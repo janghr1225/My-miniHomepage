@@ -1,0 +1,25 @@
+<!-- 사인인 화면 페이지 -->
+<div th:fragment="LogSignbtnFragment">
+
+	<div class="btn-group btn-group-sm LoginSigninBtn">
+		<a th:href="@{/hompiUser/login}" sec:authorize="isAnonymous()"
+			class="btn btn-secondary active" aria-current="page">로그인</a> 
+		<a th:href="@{/hompiUser/logout}" sec:authorize="isAuthenticated()"
+			class="btn btn-secondary active" >로그아웃</a> 
+		 
+		 <!-- 로그인하면 회원가입은 못하게 함 , 호버시 메시지 보임 -->
+		 <a href="#" sec:authorize="isAuthenticated()" disabled tabindex="0" 
+		 class="btn btn-lg bbtn-light" role="button" 
+		 data-toggle="popover" data-trigger="focus" 
+		 title="로그아웃 후 가능합니다"  data-content="로그아웃 후 가능합니다">회원가입</a>
+		 
+		 <a th:href="@{/hompiUser/signup}" sec:authorize="isAnonymous()"
+			class="btn btn-secondary btn-active">회원가입
+		</a>
+	</div>
+</div>
+<th:block layout:fragment="script" defer>
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+</th:block>

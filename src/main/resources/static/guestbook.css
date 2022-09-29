@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+#guestdiv{
+	border:none;
+}
+
+.container{
+	background-color:whitesmoke;
+}
+
+.guestbookform{
+	  resize:none;
+	   border:1px solid #c0c0c0;
+}
+
+#submitInput{
+	border:1px solid #c0c0c0; 
+	border-radius:3px;
+	font-size:small;
+	
+}
+
+.date{
+	font-size:small;
+}
+
+#paging{
+	
+}

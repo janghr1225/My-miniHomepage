@@ -1,0 +1,21 @@
+
+<nav th:fragment="navbarFragment">
+
+	<div class="nav nav-tabs" id="nav-tab" role="tablist">
+		<button class="nav-link active btn-secondary" id="nav-home-tab"
+			data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+			role="tab" aria-controls="nav-home" aria-selected="true">
+			홈</button>
+		<a th:href="@{/diary/list}">
+			<button class="nav-link  btn-secondary" id="nav-profile-tab"
+				data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+				role="tab" aria-controls="nav-profile" aria-selected="false">
+				다이어리</button>
+		</a>
+		<button class="nav-link  btn-secondary" id="nav-contact-tab"
+			data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+			role="tab" aria-controls="nav-contact" aria-selected="false">
+			방명록</button>
+
+	</div>
+</nav>

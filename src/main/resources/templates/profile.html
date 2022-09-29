@@ -1,0 +1,30 @@
+<!-- 공통적으로 인덱스포함, 로그인 시 aboutme에 표시될 값 -->
+<div th:fragment="profileContent">
+	<div class="profileTextWrap">
+
+<!-- admin으로 로그인 시 -->
+		<div sec:authorize="hasRole('ROLE_ADMIN')">
+			<div>안녕하세요</div>
+			<div>admin 계정입니다</div>
+			<div>(●'◡'●)☆</div>
+		</div>
+<!-- 일반 회원 -->
+		<div sec:authorize="hasRole('ROLE_HOMPIUSER')">
+			<div>안녕하세요</div>
+			<div>일반 계정입니다</div>
+			<div>( •̀ ω •́ )y</div>
+		</div>
+<!-- 로그인 하지 않은 상태 -->
+		<div sec:authorize="isAnonymous()" aria-current="page">
+
+			<div>안녕하세요</div>
+			<div>기본으로 보여지는</div>
+			<div>자기소개입니다</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+
